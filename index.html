@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./styles.css">
+  <title>Shorten Links</title>
+</head>
+
+<body>
+  <img class="logo-img" src="./images/Shortt-It-Logo.png" alt="">
+  <br>
+  <img class="tagline-img" src="./images/tagline.png" alt="">
+  <div class="elements">
+    <div class="search-box">
+      <form id="link-url" action="">
+        <input class="input-bar" type="text" placeholder="Paste a link to shorten it...">
+        <a onclick="shortenIt()">Short It</a>
+      </form>
+    </div>
+    <img class="loading-ani" src="./images/loading.svg" alt="">
+    <div class="links">
+      <a id="short-url" href="">this is the link</a>
+      <a class="button" onclick="copyLink()">Copy Short Link</a>
+    </div>
+
+  </div>
+  <script src="dist/clipboard.min.js"></script>
+  <script src="./script.js"></script>
+</body>
+
+</html>
