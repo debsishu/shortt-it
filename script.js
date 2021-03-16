@@ -53,6 +53,9 @@ function copyLink() {
   tempText.select();
   document.execCommand('copy');
   document.body.removeChild(tempText);
+  var buttonText = document.querySelector(".button");
+  buttonText.innerText = "Link Copied";
+  buttonText.style.backgroundColor = "#ff8949";
 }
 
 
