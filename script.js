@@ -42,6 +42,7 @@ function shortenIt() {
     document.querySelector(".input-bar").focus();
   }
 
+  return false;
 
 }
 
@@ -55,7 +56,7 @@ function copyLink() {
   document.body.removeChild(tempText);
   var buttonText = document.querySelector(".button");
   buttonText.innerText = "Link Copied";
-  buttonText.style.backgroundColor = "#ff8949";
+  buttonText.style.backgroundColor = "#cc7648";
 }
 
 
