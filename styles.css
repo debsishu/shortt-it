@@ -163,7 +163,7 @@ a {
 
 .promt {
   display: block;
-  width: 400px;
+  width: 90vw;
   margin-left: auto;
   margin-right: auto;
 }
@@ -209,4 +209,54 @@ a {
 }
 .push {
   height: 50px;
+}
+
+@media(max-width:460px) {
+  .navbar {
+    padding: 15px 20px 20px 20px;
+  }
+
+  .navbar img {
+    width: 100px;
+  }
+
+  .navbar a {
+    font-size: 0.9rem;
+  }
+
+  .hero-img {
+    width: 90vw;
+  }
+
+  .input-bar {
+    width: 60vw;
+    height: 45px;
+    font-size: 1rem;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .input-form div {
+    font-size: 1rem;
+    padding: 13px 20px 12px 20px;
+  }
+
+  .loading {
+    width: 35px;
+  }
+
+  .short-links {
+    width: 90vw;
+  }
+
+  .top-link-div {
+    width: 90vw;
+  }
+
+  .bottom-link-div {
+    width: 90vw;
+    padding-left: 30px;
+    padding-right: 10px;
+  }
+
 }

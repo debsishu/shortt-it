@@ -40,7 +40,12 @@ function shortenIt() {
       .then(data => {
         newUrl = data.result.full_short_link;
         loader.style.display = "none";
-        var chopped = x.slice(0, 60);
+        var chopped = "";
+        if(screen.width > 450) {
+          chopped = x.slice(0, 60);
+        } else {
+          chopped = x.slice(0, 30);
+        }
         console.log(newUrl);
         if (!link1 && !link2) {
           document.getElementById("short-link-1").style.display = 'block';
