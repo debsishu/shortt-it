@@ -5,29 +5,71 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="./styles.css">
-  <title>Shorten Links</title>
+  <title>Shortt It</title>
+  <script src="https://kit.fontawesome.com/27ef16d886.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
-  <img class="logo-img" src="./images/Shortt-It-Logo.png" alt="">
-  <br>
-  <img class="tagline-img" src="./images/tagline.png" alt="">
-  <div class="elements">
-    <div class="search-box">
-      <form id="link-url" action="" onsubmit="return shortenIt();">
-        <input class="input-bar" type="text" placeholder="Paste a link to shorten it...">
-        <a onclick="shortenIt()">Short It</a>
-      </form>
-    </div>
-    <img class="loading-ani" src="./images/loading.svg" alt="">
-    <div class="links">
-      <a id="short-url" href="">this is the link</a>
-      <a class="button" onclick="copyLink()">Copy Short Link</a>
+
+  <div class="wrapper">
+
+    <div class="navbar">
+      <img src="./images/Shortt-It-Logo.png" alt="Shorttit">
+      <a href="mailto:debsishu.pal@gmail.com">Contact Me</a>
     </div>
 
+    <img class="hero-img" id="hero-img-change" src="./images/Hero-Gif.png" alt="Hero-Img">
+
+    <div class="input-form">
+      <form id="link-url" onsubmit="return shortenIt()">
+        <input class="input-bar" type="text">
+        <div onclick="shortenIt()">Shorten It</div>
+      </form>
+    </div>
+
+    <img class="loading w3-animate-top" src="./images/load.gif" alt="">
+
+    <div class="short-links w3-animate-top" id="short-link-1">
+      <div class="top-link-div">
+        <a class="top-link-1" href=""></a>
+      </div>
+      <div class="bottom-link-div">
+        <a class="bottom-link-1" href=""></a>
+        <i class="fas fa-copy fa-lg copy" onclick="copyText('bottom-link-1')"></i>
+      </div>
+    </div>
+
+    <div class="short-links w3-animate-top" id="short-link-2">
+      <div class="top-link-div">
+        <a class="top-link-2" href=""></a>
+      </div>
+      <div class="bottom-link-div">
+        <a class="bottom-link-2" href=""></a>
+        <i class="fas fa-copy fa-lg copy" onclick="copyText('bottom-link-2')"></i>
+      </div>
+    </div>
+
+    <div class="push"></div>
+
   </div>
-  <script src="dist/clipboard.min.js"></script>
+  <footer class="footer">
+
+    <div class="social">
+      <a href="https://github.com/debsishu" class="fab fa-github fa-lg github"></a>
+      <a href="https://www.linkedin.com/in/debsishu-pal-96717b19a" class="fab fa-linkedin-in fa-lg linkedin"></a>
+      <a href="https://www.instagram.com/debsishu/" class="fab fa-instagram fa-lg instagram"></a>
+    </div>
+
+    <div class="promt">
+      <a href="mailto:debsishu.pal@gmail.com">mail me at : debsishu.pal@gmail.com</a>
+      <img src="./images/shorttit-white.png" alt="shortt it">
+    </div>
+
+  </footer>
+
   <script src="./script.js"></script>
 </body>
 

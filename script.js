@@ -1,8 +1,22 @@
+// this optimizes the website load time
+if (document.readyState === 'ready' || document.readyState === 'complete') {
+  document.getElementById("hero-img-change").src = "./images/Hero-Gif.gif";
+} else {
+  document.onreadystatechange = function () {
+    if (document.readyState == "complete") {
+      document.getElementById("hero-img-change").src = "./images/Hero-Gif.gif";
+    }
+  }
+}
+
+
 //this is the function to reset the input text everytime we refresh the page
 window.onload = function () {
   document.querySelector('.input-bar').value = ''
 }
 
+var link1 = false;
+var link2 = false;
 
 function shortenIt() {
   //selecting the input text from the HTML file
@@ -16,29 +30,50 @@ function shortenIt() {
 
     const api = "https://api.shrtco.de/v2/shorten?url=";
 
-    //on api calls it will show loading animation
-    var load = document.querySelector(".loading-ani");
-    load.style.display = 'block';
-    var links = document.querySelector(".links");
-
     const url = api + x;
     var newUrl = "";
 
-    //does a fetch request on the api
+    const loader = document.querySelector(".loading");
+    loader.style.display = "block";
     fetch(url)
       .then(res => res.json())
       .then(data => {
-        load.style.display = 'none';
         newUrl = data.result.full_short_link;
+        loader.style.display = "none";
+        var chopped = x.slice(0, 60);
         console.log(newUrl);
-        var oldUrl = x.slice(0, 60);
-        links.style.display = 'flex';
-        document.getElementById("short-url").href = newUrl;
-        document.getElementById("short-url").innerText = oldUrl;
+        if (!link1 && !link2) {
+          document.getElementById("short-link-1").style.display = 'block';
+          var topLink = document.querySelector(".top-link-1");
+          var bottomLink = document.querySelector(".bottom-link-1");
+          topLink.href = x;
+          topLink.innerText = chopped;
+          bottomLink.href = newUrl;
+          bottomLink.innerText = newUrl;
+          link1 = true;
+        } else if (link1 && !link2) {
+          document.getElementById("short-link-2").style.display = 'block';
+          var topLink = document.querySelector(".top-link-2");
+          var bottomLink = document.querySelector(".bottom-link-2");
+          topLink.href = x;
+          topLink.innerText = chopped;
+          bottomLink.href = newUrl;
+          bottomLink.innerText = newUrl;
+          link2 = true;
+        } else if (link1 && link2) {
+          document.getElementById("short-link-1").style.display = 'block';
+          var topLink = document.querySelector(".top-link-1");
+          var bottomLink = document.querySelector(".bottom-link-1");
+          topLink.href = x;
+          topLink.innerText = chopped;
+          bottomLink.href = newUrl;
+          bottomLink.innerText = newUrl;
+          link2 = false;
+        }
       })
 
   } else {
-    alert("Not valid url");
+    alert("Not a valid URL");
     document.querySelector(".input-bar").focus();
   }
 
@@ -46,17 +81,13 @@ function shortenIt() {
 
 }
 
-function copyLink() {
-  var shortLink = document.getElementById("short-url").href;
+function copyText(link) {
+  var shortLink = document.querySelector("." + link).href;
   var tempText = document.createElement('textarea');
   tempText.value = shortLink;
   document.body.appendChild(tempText);
   tempText.select();
   document.execCommand('copy');
   document.body.removeChild(tempText);
-  var buttonText = document.querySelector(".button");
-  buttonText.innerText = "Link Copied";
-  buttonText.style.backgroundColor = "#cc7648";
+  alert("Link copied to clipboard");
 }
-
-
