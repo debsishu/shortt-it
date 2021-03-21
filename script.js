@@ -96,3 +96,9 @@ function copyText(link) {
   document.body.removeChild(tempText);
   alert("Link copied to clipboard");
 }
+
+function selectText() {
+  var text = document.querySelector(".input-bar");
+  text.focus();
+  text.select();
+}
